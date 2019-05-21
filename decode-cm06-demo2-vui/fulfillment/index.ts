@@ -136,6 +136,9 @@ const handleDecideEventTimeIntent = (conv: ActionsSdkConversation, raw: string, 
     if (entity.type === 'RegexpTime') {
       const m = entity.entity.match(/([0-9]+)時([0-9]+)分/)
       conv.data['eventTime'] = `${m[1]}:${m[2]}`
+    } else if (entity.type === 'RegexpHour') {
+      const m = entity.entity.match(/([0-9]+)時/)
+      conv.data['eventTime'] = `${m[1]}:00`
     } else if (entity.type === 'RegexpLength') {
       const m = entity.entity.match(/([0-9]+)時間/)
       conv.data['eventLength'] = String(Number(m[1]) * 60)
