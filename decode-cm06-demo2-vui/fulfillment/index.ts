@@ -9,38 +9,24 @@ const app = actionssdk({
 })
 
 const rooms = {
-  adams: {
+  'RoomAdams': {
     email: 'Adams@M365x850511.onmicrosoft.com', name: 'Conf Room Adams'
   },
-  baker: {
+  'RoomBaker': {
     email: 'Baker@M365x850511.onmicrosoft.com', name: 'Conf Room Baker'
   },
-  crystal: {
+  'RoomCrystal': {
     email: 'Crystal@M365x850511.onmicrosoft.com', name: 'Conf Room Crystal'
   },
-  hood: {
+  'RoomHood': {
     email: 'Hood@M365x850511.onmicrosoft.com', name: 'Conf Room Hood'
   },    
-  rainer: {
+  'RoomRainer': {
     email: 'Rainier@M365x850511.onmicrosoft.com', name: 'Conf Room Rainier'
   },
-  stevens: {
+  'RoomStevens': {
     email: 'Stevens@M365x850511.onmicrosoft.com', name: 'Conf Room Stevens'
   }
-}
-
-const phraseToRoomMap = {
-  'スティーブン': rooms.stevens,
-  'スティーブンズ': rooms.stevens,
-  'レイナ': rooms.rainer,
-  'れいな': rooms.rainer,
-  'フッド': rooms.hood,
-  'フット': rooms.hood,
-  'クリスタル': rooms.crystal,
-  'ベーカー': rooms.baker,
-  'ベイカー': rooms.baker,
-  'アダムス': rooms.adams,
-  'アダムズ': rooms.adams
 }
 
 app.intent('actions.intent.MAIN', conv => {
@@ -125,7 +111,7 @@ const handleConfirmYesIntent = (conv: ActionsSdkConversation, raw: string, inten
 
 const handleDecideEventRoomIntent = (conv: ActionsSdkConversation, raw: string, intent: any): void => {
   const roomEntity = intent.entities[0]
-  const room = phraseToRoomMap[roomEntity.entity]
+  const room = rooms[roomEntity.type]
   conv.data['eventRoom'] = `${room.email}/${room.name}`
   conv.ask(`ありがとうございます。では、${conv.data['eventName']}の会議予約を行いますか？`)
   conv.data['context'] = 'confirm-create-event'
