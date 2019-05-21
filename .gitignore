@@ -1,0 +1,9 @@
+node_modules/
+dist/
+*.js
+*.d.ts
+deploy.sh
+*.zip
+*.map
+package-lock.json
+creds.data\

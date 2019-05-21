@@ -1,0 +1,21 @@
+{
+  "actions": [
+    {
+      "name": "MAIN",
+      "fulfillment": {
+        "conversationName": "myFulfillment"
+      },
+      "intent": {
+        "name": "actions.intent.MAIN"
+      }
+    }
+  ],
+  "conversations": {
+    "myFulfillment": {
+      "name": "myFulfillment",
+      "url": "https://decode-cm06-demo2-vui.azurewebsites.net/api/fulfillment",
+      "fulfillmentApiVersion": 2
+    }
+  },
+  "locale": "ja"
+}
