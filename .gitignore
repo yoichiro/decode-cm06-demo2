@@ -7,3 +7,7 @@ deploy.sh
 *.map
 package-lock.json
 creds.data\
+bin/
+obj/
+*.csproj
+avoid-cold-standby.sh
