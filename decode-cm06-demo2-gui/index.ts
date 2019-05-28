@@ -85,11 +85,16 @@ app.get('/callback', (req, res) => {
         if (error) {
             res.status(500).send(error)
         } else {
-            res.cookie('accessToken', body.access_token, {
-                maxAge: 60 * 60 * 1000,
-                httpOnly: false
-            })
-            res.redirect('/')
+            const accessToken = body.access_token
+            if (accessToken) {
+                res.cookie('accessToken', body.access_token, {
+                    maxAge: 60 * 60 * 1000,
+                    httpOnly: false
+                })
+                res.redirect('/')
+            } else {
+                res.status(500).send(body)
+            }
         }
     })
 })
