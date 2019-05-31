@@ -13,7 +13,7 @@
   "conversations": {
     "myFulfillment": {
       "name": "myFulfillment",
-      "url": "https://decode-cm06-demo2-vui.azurewebsites.net/api/fulfillment",
+      "url": "<DEPLOYED_FUNCTION_ENDPOINT_URL>",
       "fulfillmentApiVersion": 2
     }
   },
